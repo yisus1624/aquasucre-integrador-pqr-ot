@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Integrador PQR - AquaSucre</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Integrador PQR - AquaSucre E.S.P.</h1>
+    <p>Listado de PQR registradas en Frappe Helpdesk</p>
+    {% if error %}<p class="error">Error: {{ error }}</p>{% endif %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th><th>Asunto</th><th>Estado</th><th>Prioridad</th><th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in tickets %}
+            <tr>
+                <td>{{ t.name }}</td>
+                <td>{{ t.subject }}</td>
+                <td>{{ t.status }}</td>
+                <td>{{ t.priority }}</td>
+                <td><a href="/ticket/{{ t.name }}">Ver detalle</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
