@@ -19,7 +19,7 @@
         <div class="field"><span class="label">Asunto:</span> {{ ticket.subject }}</div>
         <div class="field"><span class="label">Estado:</span> {{ ticket.status }}</div>
         <div class="field"><span class="label">Prioridad:</span> {{ ticket.priority }}</div>
-        <div class="field"><span class="label">Descripción:</span> {{ ticket.description }}</div>
+        <div class="field"><span class="label">Descripción:</span> {{ ticket.description | safe }}</div>
     {% endif %}
 </body>
 </html>
